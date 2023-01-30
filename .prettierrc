@@ -1,0 +1,8 @@
+{
+  "ignore": [
+    "**/css/**"
+  ],
+  "files": ["*.json"],
+  "singleQuote": true,
+   "doubleQuote": false
+}

@@ -1,0 +1,47 @@
+{
+  "name": "rebuild",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "homepage": "https://cold-world.github.io/",
+  "scripts": {
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "devserver": "live-server --port=8081",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "stylelint": "stylelint '**/*.scss'",
+    "stylelint:fix": "stylelint '**/*.scss' --fix",
+    "prefix:css": "postcss css/style.comp.css -o css/style.prefix.css --use autoprefixer",
+    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css",
+    "deploy": "gh-pages -d build",
+    "test:safari": "npx playwright test --headed --browser=webkit"
+  },
+  "keywords": [],
+  "author": "cold-world",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.30.0",
+    "autoprefixer": "^10.4.13",
+    "browserslist": "^4.21.4",
+    "concat": "^1.0.3",
+    "gh-pages": "^5.0.0",
+    "live-server": "^1.2.2",
+    "node-sass": "^8.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "postcss-scss": "^4.0.6",
+    "stylelint": "^14.16.1",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-order": "^6.0.1",
+    "stylelint-prettier": "^2.0.0",
+    "stylelint-scss": "^4.3.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 5 versions"
+  ]
+}
