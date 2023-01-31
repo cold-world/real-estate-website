@@ -1,6 +1,6 @@
 {
   "ignore": [
-    "**/css/**"
+    "**/css/**","**/build/**"
   ],
   "files": ["*.json"],
   "singleQuote": true,
